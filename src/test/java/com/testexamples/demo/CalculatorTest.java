@@ -103,7 +103,7 @@ class CalculatorTest {
     @EnabledOnOs({OS.WINDOWS, OS.MAC})
     @DisabledOnOs(OS.LINUX)
     public void testDivisionZeroDenominator(){
-        assertThrows(DenominatorZeroException.class,()-> calculator.sum(null,null));
+        assertThrows(DenominatorZeroException.class,()-> calculator.divide(14,0));
     }
 
     @ParameterizedTest(name = "{0} / {1} = {2}")

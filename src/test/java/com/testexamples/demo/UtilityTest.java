@@ -13,7 +13,7 @@ public class UtilityTest {
 
     @BeforeAll
     static void inicializador(){
-        utility= new Utility();
+        utility= Utility.getUtility();
     }
 
     @Tag("unitTest")
@@ -33,7 +33,7 @@ public class UtilityTest {
     @Test
     public void checkDenominatorZero(){
         //para el mensaje assertEquals(expected, actual, delta, messageSupplier);
-        assertThrows(DenominatorZeroException.class, ()-> Utility.checkNullableInput(null));
+        assertThrows(DenominatorZeroException.class, ()-> Utility.checkDenominatorZero(0));
     }
 
     @Tag("unitTest")

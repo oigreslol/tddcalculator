@@ -33,6 +33,7 @@ public class Calculator {
         Utility.checkInputInteger(a);
         Utility.checkInputInteger(b);
     }
+
     public void checkDenominator(Object a) throws UtilityException {
         Utility.checkDenominatorZero(a);
     }
