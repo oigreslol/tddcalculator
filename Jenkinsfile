@@ -1,9 +1,14 @@
 pipeline {
+    /* TO RUN GRADLE AND PROJECT INSIDE A DOCKER
     agent {
         docker {
             image 'gradle'
             args '-p 3000:3000'
         }
+    }*/
+    agent any
+    tools{
+        gradle "gradle"
     }
     stages {
         stage('Creation'){
