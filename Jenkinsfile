@@ -1,14 +1,16 @@
 pipeline {
     agent {
         docker {
-            image 'gradle:latest'
+            image 'gradle'
             args '-p 3000:3000'
         }
     }
-    environment {
-        CI = 'true'
-    }
     stages {
+        stage('Creation'){
+            steps{
+                sh 'gradle clean'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'gradle build'
@@ -23,6 +25,11 @@ pipeline {
             steps {
                 sh 'gradle build'
             }
+        }
+    }
+    post {
+        always {
+            junit 'build/test-results/test/*.xml'
         }
     }
 }
